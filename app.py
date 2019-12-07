@@ -47,10 +47,7 @@ def searchall(query, result, file, namefield):
             if result[1] < SequenceMatcher(None, name, query).ratio():
                 result[0] = rec[namefield]
                 result[1] = SequenceMatcher(None, name, query).ratio()
-    if not result:
-        return 'not found'
-    else:
-        return result
+    return result
 
 
 @app.route('/requestQuery', methods=['POST'])
@@ -61,7 +58,7 @@ def requestQuery():
         return searchPostalCode(query)
     else:
         query = query.lower()
-        result = [0,0]
+        result = ['not found',0]
         result = searchall(query, result, 'schapefiles/gis_osm_places_free_1.shp', 4)
         result = searchall(query, result, 'schapefiles/gis_osm_roads_free_1.shp', 3)
         return result[0]
