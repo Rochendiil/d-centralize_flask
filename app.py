@@ -14,7 +14,7 @@ def hello_world():
 
 def searchPostalCode(query):
     result = [0,0]
-    sfPostal = shapefile.Reader('schapefiles/openpostcodevlakkenpc4.shp')
+    sfPostal = shapefile.Reader('shapefiles/openpostcodevlakkenpc4.shp')
     records = sfPostal.records()
     for rec in records:
         number = rec[0]
@@ -59,8 +59,8 @@ def requestQuery():
     else:
         query = query.lower()
         result = ['not found',0]
-        result = searchall(query, result, 'schapefiles/gis_osm_places_free_1.shp', 4)
-        result = searchall(query, result, 'schapefiles/gis_osm_roads_free_1.shp', 3)
+        result = searchall(query, result, 'shapefiles/gis_osm_places_free_1.shp', 4)
+        result = searchall(query, result, 'shapefiles/gis_osm_roads_free_1.shp', 3)
         return result[0]
 
 if __name__ == '__main__':
