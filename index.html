@@ -1,0 +1,10 @@
+<input id="query"></input>
+<button id="send">send</button>
+
+<script>
+    var request = new XMLHttpRequest()
+    document.getElementById("send").onclick = function(){
+        request.open('POST', 'http://localhost:5000/requestQuery?query=' + document.getElementById("query").value) 
+        request.send()
+    }
+</script>

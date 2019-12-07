@@ -1,5 +1,3 @@
-import point as point
-from flask import Flask
 from flask import *
 import shapefile
 import re
